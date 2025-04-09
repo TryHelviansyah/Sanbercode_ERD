@@ -11,3 +11,7 @@ Route::get('/', [DashboardController::class, 'index'])->name('home');
 Route::get('/register', [FormController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [FormController::class, 'processRegister'])->name('process.register');
 Route::get('/welcome', [FormController::class, 'welcome'])->name('welcome');
+
+route::get('/master', function () {
+    return view('layouts.master');
+});
