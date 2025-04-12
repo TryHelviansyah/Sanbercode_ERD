@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('genres', function (Blueprint $table) {
-            $table->bigInteger('id', 8)->primary();
+            $table->id(); // Menggunakan id() untuk auto_increment bigInteger
             $table->string('name', 255);
             $table->text('description')->nullable();
             $table->timestamps();

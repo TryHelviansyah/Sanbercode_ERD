@@ -10,13 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->bigInteger('id', 8)->primary();
-            $table->text('content');
-            $table->bigInteger('user_id', 8);
-            $table->bigInteger('book_id', 8);
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('book_id')->references('id')->on('books');
+        Schema::create('books', function (Blueprint $table) {
+            $table->id(); // Menggunakan id() untuk auto_increment bigInteger
+            $table->string('title', 255);
+            $table->text('description')->nullable();
+            $table->foreignId('genre_id')->constrained();
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('books');
     }
 };

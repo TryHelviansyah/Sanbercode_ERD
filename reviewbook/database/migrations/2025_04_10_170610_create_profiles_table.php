@@ -11,11 +11,10 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->bigInteger('id', 8)->primary();
-            $table->integer('age', 5)->nullable();
+            $table->id(); // Menggunakan id() untuk auto_increment bigInteger
+            $table->integer('age')->nullable();
             $table->text('address')->nullable();
-            $table->bigInteger('user_id', 8);
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

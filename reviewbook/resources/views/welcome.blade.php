@@ -15,7 +15,7 @@
                         <h2>Welcome to Our Website</h2>
                     </div>
                     <div class="card-body">
-                        <h3>Hello, {{ $firstName }} {{ $lastName }}!</h3>
+                        <h3>Hello, {{ $firstName ?? 'Guest' }} {{ $lastName ?? '' }}!</h3>
                         <p class="lead">Thank you for registering with us.</p>
                         <p>Your registration has been successfully processed.</p>
                         <a href="{{ route('home') }}" class="btn btn-primary">Back to Home</a>
